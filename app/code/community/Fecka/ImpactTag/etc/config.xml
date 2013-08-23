@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category    Fecka
+ * @package     ImpactTag
+ * @copyright   Copyright (c) 2013 Ferenc Sonkoly
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License (GPL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Fecka_ImpactTag>
+            <version>0.1.0</version>
+        </Fecka_ImpactTag>
+    </modules>
+    <global>
+        <models>
+            <impacttag>
+                <class>Fecka_ImpactTag_Model</class>
+            </impacttag>
+        </models>
+        <blocks>
+            <impacttag>
+                <class>Fecka_ImpactTag_Block</class>
+            </impacttag>
+        </blocks>
+        <helpers>
+            <impacttag>
+                <class>Fecka_ImpactTag_Helper</class>
+            </impacttag>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <impacttag>
+                    <file>impacttag.xml</file>
+                </impacttag>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <impacttag>
+            <tracking>
+                <active>0</active>
+                <site_tracking>0</site_tracking>
+            </tracking>
+         </impacttag>
+    </default>
+</config>

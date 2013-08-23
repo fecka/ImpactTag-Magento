@@ -1,0 +1,54 @@
+<?php
+/**
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category    Fecka
+ * @package     ImpactTag
+ * @copyright   Copyright (c) 2013 Ferenc Sonkoly
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License (GPL 3.0)
+ */
+?>
+<?php if (!Mage::helper("core/cookie")->isUserNotAllowSaveCookie() && Mage::helper("impacttag")->isAvailable()): ?>
+<?php $fields = $this->getFields(); ?>
+<!-- ImpactTag Conversion Tracking Code -->
+<script type="text/javascript">
+//<![CDATA[
+    var JsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cscript src='" + JsHost + "track.redirecting2.net/redirecting2_functions.js' type='text/javascript'%3E%3C/script%3E"));
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    var cID = <?php echo $fields['cID']  ?>;
+    var order_id = <?php echo $fields['order_id']  ?>;
+    var conversion_location_id = "<?php echo $fields['conversion_location_id']  ?>";
+    var sale_value_gross = <?php echo $fields['sale_value_gross']  ?>;
+    var sale_value_net = <?php echo $fields['sale_value_net']  ?>;
+    var sale_value_delivery = <?php echo $fields['sale_value_delivery']  ?>;
+    var sale_value_tax = <?php echo $fields['sale_value_tax']  ?>;
+    var sale_value_currency = "<?php echo $fields['sale_value_currency']  ?>";
+    var voucher_code = "<?php echo $fields['voucher_code']  ?>";
+
+    var custom_name = [];
+    var custom_value = [];
+    redirecting2_tracksale(cID, order_id, conversion_location_id, sale_value_gross, sale_value_net, sale_value_delivery, sale_value_tax, sale_value_currency, voucher_code, custom_name, custom_value);
+//]]>
+</script>
+<noscript>
+    <iframe src="//<?php echo $fields['cID']  ?>.redirecting2.net/tracksale.aspx?cID=<?php echo $fields['cID']  ?>&orderID=<?php echo $fields['order_id']  ?>&conversionLocationID=<?php echo $fields['conversion_location_id']  ?>&salesValueGross=<?php echo $fields['sale_value_gross']  ?>&salesValueNet=<?php echo $fields['sale_value_net']  ?>&salesValueDelivery=<?php echo $fields['sale_value_delivery']  ?>&salesValueTax=<?php echo $fields['sale_value_tax']  ?>&salesValueCurrency=<?php echo $fields['sale_value_currency']  ?>&voucherCode=<?php echo $fields['voucher_code']  ?>&trackMethod=1" name="redirecting2_tracksale" width="0" height="0" frameborder="0" scrolling="no"></iframe>
+</noscript>
+<!-- /ImpactTag Conversion Tracking Code -->
+<?php endif; ?>
